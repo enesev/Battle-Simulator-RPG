@@ -21,7 +21,9 @@ public class Graveyard {
      * @param deadChar          carácter a añadir al cementerio
     * */
     public void addDeadCharacter(List<Character> deadCharacters, Character deadChar) {
-        deadCharacters.add(deadChar);
+        if (deadChar.isAlive() == false) {
+            deadCharacters.add(deadChar);
+        }
         // System.out.println(Character.getName() + " ha fallecido! Su cuerpo ha sido añadido al cementerio");
     }
 
