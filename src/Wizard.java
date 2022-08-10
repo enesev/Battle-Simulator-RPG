@@ -10,28 +10,76 @@ public class Wizard extends Character implements Attacker {
         this.intelligence = intelligence;
     }
 
+    public void setWizardHp(int hp) {
+        if (hp < 50){
+            setHp(50);
+        }else if (hp > 100){
+            setHp(100);
+        }else
+        setHp(hp);
+    }
+    public int getMana() {
+        return mana;
+    }
+
+    public void setMana(int mana) {
+        if (mana < 10){
+            setMana(10);
+        }else if (mana > 50){
+            setMana(50);
+        }else
+        this.mana = mana;
+    }
+
+    public int getIntelligence() {
+        return intelligence;
+    }
+
+    public void setIntelligence(int intelligence) {
+        if (intelligence < 1){
+            setIntelligence(1);
+        }else if (intelligence > 50){
+            setIntelligence(50);
+        }else
+        this.intelligence = intelligence;
+    }
+
     @Override
     public void attack() {
 
-        if (mana >= 5) {
+        if (this.getMana() >= 5) {
             fireball();
         } else {
             staffHit();
         }
     }
 
-    public void fireball(){
-        int damage = intelligence;
-        int manaDecrease = 5;
-        this.mana = this.mana + manaDecrease;
-
-        //              este volumen + el nuevo, es mas grande que max? si es que si, sera MAX, sino sera este volume+volume nuevo
-
+    public int fireball(){
+        int damage = this.getIntelligence();
+        setMana(this.getMana() - 5);
+        return damage;
     }
 
-    public void staffHit(){
-        int damage = 2;
-        int manaIncrease = 1;
-        this.mana = this.mana + manaIncrease;
+
+    public int staffHit(){
+        setMana(this.getMana() + 1);
+        return 2;
     }
+
+    public void decreaseHealth(int damage){
+        setHp(getHp() - damage);
+    }
+
+
+/*
+ ESTO VA EN BATTLE
+
+    wizard.setAlive(false);
+
+*/
+
+
+
 }
+
+
