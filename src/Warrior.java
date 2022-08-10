@@ -6,40 +6,58 @@ public class Warrior extends Character{
     //Constructor
     public Warrior(int id, String name, int hp, int stamina, int strength) {
         super(id, name, hp);
-        this.stamina = stamina;
-        this.strength = strength;
+        setStamina(stamina);
+        setStrength(strength);
     }
 
-    //Implement the attack interface
     @Override
-    public int[] Attacker(){
-        int[] damage = new int[2];
-        if (getStamina() < 5){
-            damage[0] = 0;                  //Indicates that is a weak attack
-            damage[1] = getStrength()/2;
-            setStamina(getStamina()+1);
-        } else{
-            damage[0] = 1;                  //Indicates that is a heavy attack
-            damage[1] = getStrength();
-            setStamina(getStamina() + 5);
+    public void attack() {
+        if (this.getStamina() >= 5) {
+            heavyAttack();
+        } else {
+            weakAttack();
         }
+    }
+
+    public int heavyAttack() {
+        int damage = this.getStrength();
+        setStamina(this.getStamina() - 5);
+
         return damage;
+    }
+
+    public int weakAttack() {
+        int damage = this.getStrength() / 2;
+        setStamina(this.getStamina() + 1);
+
+        return damage;
+    }
+
+    public void setWarriorHp(int hp){
+        if (hp < 100) setHp(100);
+        else if (hp > 200) setHp(200);
+        else setHp(hp);
+        }
+
+    public void setStamina(int Stamina) {
+        if (stamina < 10) setStamina(10);
+        else if (stamina > 50) setStamina(50);
+        else this.stamina = stamina;
     }
 
     public int getStamina() {
         return stamina;
     }
 
-    public void setStamina(int stamina) {
-        this.stamina = stamina;
-    }
 
     public int getStrength() {
         return strength;
     }
 
     public void setStrength(int strength) {
-        this.strength = strength;
-    }
+        if(strength < 1) setStrength(1);
+        else if (strength > 10) setStrength(10);
+        else this.strength = strength;
+        }
 
-}
+    }
