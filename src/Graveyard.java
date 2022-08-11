@@ -13,8 +13,7 @@ public class Graveyard {
 
     // método temporal, no pertenece a la versión final, debería ser implementado en otra clase
     public void ifCharacterDied_addToGraveyard(Character character, Graveyard graveyard) {
-        if (character.getHp() <= 0) {
-            character.setAlive(false);
+        if (character.isAlive()) {
             graveyard.addDeadCharacter(getDeadCharacters(),character);
             graveyard.showGraveyard();
         } else {
