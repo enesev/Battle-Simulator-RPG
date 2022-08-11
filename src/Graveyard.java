@@ -1,4 +1,5 @@
 import java.util.List;
+
 public class Graveyard {
     // propiedades
     private List<Character> deadCharacters;
@@ -27,7 +28,10 @@ public class Graveyard {
     }
 
     public void showGraveyard () {
-        getDeadCharacters().forEach(System.out::println);
+        System.out.println("Soldados en el cementerio:");
+        for (Character c : getDeadCharacters()) {
+            System.out.println(c.getName());
+        }
     }
 
     // getter

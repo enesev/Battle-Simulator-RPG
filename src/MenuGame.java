@@ -20,7 +20,7 @@ public class MenuGame {
 
                         " 1. Create a Party \n" +
                         " 2. Import a Party \n" +
-                        " 3. Delete a Party  \n" +
+                        " 3. Show graveyard  \n" +
                         " 4. Fight \n" +
                         " 0. Exit the Game \n");
 
@@ -40,16 +40,7 @@ public class MenuGame {
                         exit = true;
                         break;
                     case 1:
-                        System.out.println("Would you like to create a party Manually or Randomly?");
-                        System.out.println("Select: \n" +
-                                "1. For Manually \n" +
-                                "2. For Randomly");
-                        int choice= scan.nextInt();
-                        if(choice == 1){
-                           //Crear Party
-                        }else{
-                           //Crear Party Random
-                        }
+                        Party.createParty();
                         break;
                     case 2:
                        // Parties.importParty();
