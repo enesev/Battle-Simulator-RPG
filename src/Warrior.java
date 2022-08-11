@@ -13,15 +13,17 @@ public class Warrior extends Character implements Attacker {
     }
 
     @Override
-    public void attack() {
+    public int attack() {
         if (this.getStamina() >= 5) {
-            heavyAttack();
+           return heavyAttack();
         } else {
             weakAttack();
         }
+        return weakAttack();
     }
 
     public int heavyAttack() {
+        System.out.println("Warrior uses Heavy attack!!");
         int damage = this.getStrength();
         setStamina(this.getStamina() - 5);
 
@@ -29,6 +31,7 @@ public class Warrior extends Character implements Attacker {
     }
 
     public int weakAttack() {
+        System.out.println("Warrior uses Weak attack!!");
         int damage = this.getStrength() / 2;
         setStamina(this.getStamina() + 1);
 

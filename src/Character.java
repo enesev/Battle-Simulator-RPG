@@ -1,4 +1,6 @@
-public abstract class Character {
+import interfaces.Attacker;
+
+public abstract class Character implements Attacker {
 
     private int id;
     private String name;
@@ -52,5 +54,9 @@ public abstract class Character {
                 ", isAlive=" + isAlive +
                 '}';
     }
+
+
+
+
 }
 

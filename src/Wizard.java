@@ -28,16 +28,17 @@ public class Wizard extends Character implements Attacker {
     }
 
     @Override
-    public void attack() {
+    public int attack() {
 
         if (this.getMana() >= 5) {
-            fireball();
+         return fireball();
         } else {
-            staffHit();
+            return staffHit();
         }
     }
 
     public int fireball(){
+        System.out.println("Wizard uses Fireball!!");
         int damage = this.getIntelligence();
         setMana(this.getMana() - 5);
         return damage;
@@ -45,6 +46,7 @@ public class Wizard extends Character implements Attacker {
 
 
     public int staffHit(){
+        System.out.println("Wizard uses Staff Hit!!");
         setMana(this.getMana() + 1);
         return 2;
     }

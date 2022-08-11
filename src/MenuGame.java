@@ -36,7 +36,7 @@ public class MenuGame {
 
                 switch (option){
                     case 0:
-                        System.out.println("You have exited the game");
+                        System.out.println("Thank you for playing!");
                         exit = true;
                         break;
                     case 1:
@@ -46,10 +46,11 @@ public class MenuGame {
                        // Parties.importParty();
                         break;
                     case 3:
-
+                        // show graveyard
                         break;
                     case 4:
-
+                        Battle battle = new Battle();
+                        battle.battle();
                     default:
                         System.err.println("You have to select an appropriate option");
                 }

@@ -7,7 +7,7 @@ public class Party {
 
 
     public Party(ArrayList<Character> party) {
-        this.party = party;
+        setParty(party);
     }
 
     public ArrayList<Character> getParty() {
@@ -18,19 +18,23 @@ public class Party {
         this.party = party;
     }
 
-    public static void createParty() {
+    public static ArrayList<Character> createParty() {
         Scanner scan = new Scanner(System.in);
         System.out.println("Would you like to create a party Manually or Randomly?");
         System.out.println("Select: \n" +
                 "1. For Manually \n" +
                 "2. For Randomly");
         int choice = scan.nextInt();
-        if (choice == 1) { createManualParty();
-            }else if (choice == 2){ createRandomParty();
+        if (choice == 1) {
+            return createManualParty();
+        } else if (choice == 2) {
+            return createRandomParty();
+        } else {
+            return null;
         }
     }
 
-    public static void createManualParty(){
+    public static ArrayList<Character> createManualParty(){
         int partySize = PideDatos.pideValorMinMax(1, 4, "¿Cuántos soldados tiene tu ejército?");
         ArrayList<Character> party1 = new ArrayList<>(partySize);
 
@@ -59,10 +63,10 @@ public class Party {
             }
         }
 
-
+    return party1;
     }
 
-    public static void createRandomParty() {
+    public static ArrayList<Character> createRandomParty() {
         System.out.println("Cuántos soldados tiene tu ejército?");
             int partySize = (int) Math.ceil(Math.random()*3+1);
             ArrayList<Character> party2 = new ArrayList<>(partySize);
@@ -92,7 +96,7 @@ public class Party {
                     System.out.println("Se ha creado un Wizard con los siguientes datos :" + wizard1.toString());
                 }
             }
-
+        return party2;
         }
 
 
