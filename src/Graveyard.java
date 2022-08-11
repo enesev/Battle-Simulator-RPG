@@ -11,7 +11,6 @@ public class Graveyard {
         setDeadCharacters(deadCharacters);
     }
 
-
     // metodos
     /**
     * Añade un carácter a la lista del cementerio. Cuando isAlive pase a false, se llama a este método:
