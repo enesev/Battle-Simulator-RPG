@@ -54,13 +54,13 @@ public class Graveyard {
 }
 
 /*
-He ejecutado esta serie de métodos en Main (sin guardarlos ni commitearlos) para comprobar el correcto funcionamiento
-de esta clase. El resultado es el esperado: crea un wizard y una lista vacía de characters, con la que construye
-el cementerio. Mato al wizard usando los setters de Character, el método auxiliar verifica su muerte
-y lo añade al cementerio
-Wizard wiz1 = new Wizard(1337, "deadWizard",1,0,10);
-List<Character> deadChars = new ArrayList<Character>(){};
-Graveyard graveyard = new Graveyard(deadChars);
-wiz1.setHp(wiz1.getHp()-2);
-graveyard.ifCharacterDied_addToGraveyard(wiz1, graveyard);
+    He ejecutado esta serie de métodos en Main (sin guardarlos ni commitearlos) para comprobar el correcto funcionamiento
+    de esta clase. El resultado es el esperado: crea un wizard y una lista vacía de characters, con la que construye
+    el cementerio. Mato al wizard usando los setters de Character, el método auxiliar verifica su muerte
+    y lo añade al cementerio
+    Wizard wiz1 = new Wizard(1337, "deadWizard",1,0,10);
+    List<Character> deadChars = new ArrayList<Character>(){};
+    Graveyard graveyard = new Graveyard(deadChars);
+    wiz1.setHp(wiz1.getHp()-2);
+    graveyard.ifCharacterDied_addToGraveyard(wiz1, graveyard);
  */
