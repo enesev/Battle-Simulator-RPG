@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class MenuGame {
 
+
     public static void menu(){
         boolean exit = false;
         Scanner scan = new Scanner(System.in);
@@ -68,6 +69,7 @@ public class MenuGame {
         }while (!exit);
 
     }
+
 
 }
 
