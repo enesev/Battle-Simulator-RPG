@@ -2,3 +2,13 @@
 /shelf/
 /workspace.xml
 TBD_nil.md
+.gitignore
+
+## Archivos que no debo alterar ##
+src/interfaces/*
+src/Character.java
+src/Main.java
+src/MenuGame.java
+src/Party.java
+src/Warrior.java
+src/Wizard.java
