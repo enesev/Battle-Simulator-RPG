@@ -11,6 +11,7 @@ public class Graveyard {
         setDeadCharacters(deadCharacters);
     }
 
+<<<<<<< HEAD
     // método temporal, no pertenece a la versión final, debería ser implementado en otra clase
     public void ifCharacterDied_addToGraveyard(Character character, Graveyard graveyard) {
         if (character.getHp() <= 0) {
@@ -21,6 +22,8 @@ public class Graveyard {
             //no ha muerto, no hacer nada
         }
     }
+=======
+>>>>>>> developer
     // metodos
     /**
     * Añade un carácter a la lista del cementerio. Cuando isAlive pase a false, se llama a este método:
