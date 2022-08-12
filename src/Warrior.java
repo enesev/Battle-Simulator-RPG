@@ -1,6 +1,6 @@
 import interfaces.Attacker;
 
-public class Warrior extends Character implements Attacker {
+public class Warrior extends Character implements Attacker{
 
     //Variables
     private int stamina;
@@ -12,13 +12,18 @@ public class Warrior extends Character implements Attacker {
         setStrength(strength);
     }
 
+    public Warrior() {
+
+    }
+
     @Override
-    public void attack() {
+    public int attack() {
         if (this.getStamina() >= 5) {
-            heavyAttack();
+           return heavyAttack();
         } else {
             weakAttack();
         }
+        return weakAttack();
     }
 
     public int heavyAttack() {
@@ -35,16 +40,10 @@ public class Warrior extends Character implements Attacker {
         return damage;
     }
 
-    public void setWarriorHp(int hp){
-        if (hp < 100) setHp(100);
-        else if (hp > 200) setHp(200);
-        else setHp(hp);
-    }
 
-    public void setStamina(int Stamina) {
-        if (stamina < 10) setStamina(10);
-        else if (stamina > 50) setStamina(50);
-        else this.stamina = stamina;
+
+    public void setStamina(int stamina) {
+        this.stamina = stamina;
     }
 
     public int getStamina() {
@@ -57,9 +56,17 @@ public class Warrior extends Character implements Attacker {
     }
 
     public void setStrength(int strength) {
-        if(strength < 1) setStrength(1);
-        else if (strength > 10) setStrength(10);
-        else this.strength = strength;
+         this.strength = strength;
     }
 
+    @Override
+    public String toString() {
+        return "Warrior{" +
+                "ID=" + super.getId() +
+                ", name=" + super.getName() +
+                ", Hp=" + super.getHp() +
+                ", stamina=" + stamina +
+                ", strength=" + strength +
+                '}';
+    }
 }
