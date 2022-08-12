@@ -19,17 +19,16 @@ public class Battle {
         do {
             Character f1 = chooseCharacter(party1);
             Character f2 = chooseCharacter(party2);
-            round(f1, f2);
+            round(f1, f2, party1, party2);
 
-        }while (party1.getParty().get(0).isAlive() == true
-                || party1.getParty().get(1).isAlive() == true
-                || party1.getParty().get(2).isAlive() == true
-                || party1.getParty().get(3).isAlive() == true
-        );
+        }while (!party1.getParty().isEmpty() || !party2.getParty().isEmpty());
+        if (party1.getParty().isEmpty()) System.out.println("Party 2 has won!");
+        if (party2.getParty().isEmpty()) System.out.println("Party 1 has won!");
 
     }
 
     public Character chooseCharacter(Party party){
+        System.out.println("===================");
         System.out.println("Choose your fighter");
         String chosenCharacter = input.nextLine();
 
@@ -53,25 +52,29 @@ public class Battle {
 
     }
 
-    public void round (Character fighter1, Character fighter2){
+    public void round (Character fighter1, Character fighter2, Party party1, Party party2){
         do{
-            System.out.println(fighter1.getName() + " does a: " + fighter1.attack()
-                    +"\n" + fighter2.getName() + " does a: " + fighter2.attack());
+            System.out.println(fighter2.getName() + " lost " + fighter1.attack() + " hp");
+            fighter1.setHp(fighter1.getHp()-fighter2.attack());
 
-        fighter1.setHp(fighter1.getHp()-fighter2.attack());
-        fighter2.setHp(fighter2.getHp()-fighter1.attack());
+            System.out.println(fighter1.getName() + " lost " + fighter2.attack() + " hp");
+            fighter2.setHp(fighter2.getHp()-fighter1.attack());
+            if (fighter1.getHp() <= 0) {
+                System.err.println("Your fighter " + fighter1.getName() + " has died!");
+                graveyard.addDeadCharacter(fighter1);
+                party1.getParty().remove(fighter1);
+                break;
+
+            }if (fighter2.getHp() <= 0){
+                System.err.println("Your fighter " + fighter2.getName() + " has died!");
+                graveyard.addDeadCharacter(fighter2);
+                party2.getParty().remove(fighter2);
+                break;
+            }
         }while (fighter1.getHp() > 0 || fighter2.getHp() > 0);
+        System.out.println("======ROUND FINISHED======");
 
-        if (fighter1.getHp() <= 0) {
-            System.out.println("Your fighter " + fighter1.getName() + " ha muerto!");
-            graveyard.addDeadCharacter(fighter1);
 
-        }
-        if (fighter2.getHp() <= 0){
-            System.out.println("Tu luchador " + fighter2.getName() + " has died!");
-            graveyard.addDeadCharacter(fighter2);
-
-        }
     }
 
 

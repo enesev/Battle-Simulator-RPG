@@ -38,7 +38,6 @@ public class Wizard extends Character implements Attacker{
     }
 
     public int fireball(){
-        System.out.println("Wizard uses Fireball!!");
         int damage = this.getIntelligence();
         setMana(this.getMana() - 5);
         return damage;
@@ -46,7 +45,6 @@ public class Wizard extends Character implements Attacker{
 
 
     public int staffHit(){
-        System.out.println("Wizard uses Staff Hit!!");
         setMana(this.getMana() + 1);
         return 2;
     }

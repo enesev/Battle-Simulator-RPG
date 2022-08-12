@@ -30,7 +30,7 @@ public abstract class Character implements Attacker{
     }
 
     public int getHp() {
-        return hp;
+        return this.hp;
     }
 
     public void setHp(int hp) {
