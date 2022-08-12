@@ -10,24 +10,12 @@ public class Wizard extends Character implements Attacker {
         this.intelligence = intelligence;
     }
 
-    public void setWizardHp(int hp) {
-        if (hp < 50){
-            setHp(50);
-        }else if (hp > 100){
-            setHp(100);
-        }else
-        setHp(hp);
-    }
+
     public int getMana() {
         return mana;
     }
 
     public void setMana(int mana) {
-        if (mana < 10){
-            setMana(10);
-        }else if (mana > 50){
-            setMana(50);
-        }else
         this.mana = mana;
     }
 
@@ -36,25 +24,21 @@ public class Wizard extends Character implements Attacker {
     }
 
     public void setIntelligence(int intelligence) {
-        if (intelligence < 1){
-            setIntelligence(1);
-        }else if (intelligence > 50){
-            setIntelligence(50);
-        }else
         this.intelligence = intelligence;
     }
 
     @Override
-    public void attack() {
+    public int attack() {
 
         if (this.getMana() >= 5) {
-            fireball();
+         return fireball();
         } else {
-            staffHit();
+            return staffHit();
         }
     }
 
     public int fireball(){
+        System.out.println("Wizard uses Fireball!!");
         int damage = this.getIntelligence();
         setMana(this.getMana() - 5);
         return damage;
@@ -62,6 +46,7 @@ public class Wizard extends Character implements Attacker {
 
 
     public int staffHit(){
+        System.out.println("Wizard uses Staff Hit!!");
         setMana(this.getMana() + 1);
         return 2;
     }
@@ -70,8 +55,18 @@ public class Wizard extends Character implements Attacker {
         setHp(getHp() - damage);
     }
 
+    @Override
+    public String toString() {
+        return "Wizard{" +
+                "ID=" + super.getId() +
+                ", name=" + super.getName() +
+                ", Hp=" + super.getHp() +
+                ", mana=" + mana +
+                ", intelligence=" + intelligence +
+                '}';
+    }
 
-/*
+    /*
  ESTO VA EN BATTLE
 
     wizard.setAlive(false);
