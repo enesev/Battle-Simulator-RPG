@@ -19,7 +19,7 @@ public class CSVHandler {
     }
 
     public static ArrayList<Character> importCSVParty() {
-        ArrayList<Character> invokedParty = new ArrayList<>();
+        ArrayList<Character> importedParty = new ArrayList<>();
 
         try (Scanner scanFile = new Scanner(new File("party.csv"))) {
             System.out.println("Importados los siguientes carácteres:");
@@ -41,7 +41,7 @@ public class CSVHandler {
             e.printStackTrace();
         }
 
-        return invokedParty;
+        return importedParty;
     }
 
 }
