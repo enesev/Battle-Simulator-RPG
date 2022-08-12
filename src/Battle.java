@@ -10,9 +10,8 @@ public class Battle {
 
     private Scanner input = new Scanner(System.in);
 
+    Graveyard g1 = new Graveyard();
 
-
-    private Graveyard graveyard = new Graveyard();
 
 
     public void battle(Party party1, Party party2){
@@ -21,7 +20,8 @@ public class Battle {
             Character f2 = chooseCharacter(party2);
             round(f1, f2, party1, party2);
 
-        }while (!party1.getParty().isEmpty() || !party2.getParty().isEmpty());
+        }while (!party1.getParty().isEmpty() || !party2.getParty().isEmpty()
+                || party1.getParty() != null || party2.getParty() != null);
         if (party1.getParty().isEmpty()) System.out.println("Party 2 has won!");
         if (party2.getParty().isEmpty()) System.out.println("Party 1 has won!");
 
@@ -60,14 +60,16 @@ public class Battle {
             System.out.println(fighter1.getName() + " lost " + fighter2.attack() + " hp");
             fighter2.setHp(fighter2.getHp()-fighter1.attack());
             if (fighter1.getHp() <= 0) {
+                fighter2.setAlive(false);
                 System.err.println("Your fighter " + fighter1.getName() + " has died!");
-                graveyard.addDeadCharacter(fighter1);
+                Graveyard.addDeadCharacter(fighter1);
                 party1.getParty().remove(fighter1);
                 break;
 
             }if (fighter2.getHp() <= 0){
+                fighter2.setAlive(false);
                 System.err.println("Your fighter " + fighter2.getName() + " has died!");
-                graveyard.addDeadCharacter(fighter2);
+                Graveyard.addDeadCharacter(fighter2);
                 party2.getParty().remove(fighter2);
                 break;
             }

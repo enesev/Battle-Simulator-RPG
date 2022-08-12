@@ -9,6 +9,7 @@ public class Wizard extends Character implements Attacker{
         this.mana = mana;
         this.intelligence = intelligence;
     }
+    public Wizard(){}
 
 
     public int getMana() {

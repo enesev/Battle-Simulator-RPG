@@ -66,7 +66,7 @@ public class Party {
                 System.out.println(wizard1.getName() + " has joined your party");
             }
         }
-
+        System.out.println("Writing manual party to party.csv");
     return party1;
     }
 
@@ -99,6 +99,8 @@ public class Party {
                     System.out.println("A Wizard was created with the following stats :" + wizard1.toString());
                 }
             }
+        System.out.println("Writing random party to file party.csv");
+        CSVHandler.exportPartyToCSV(party2, "party.csv");
         return party2;
         }
 

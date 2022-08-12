@@ -13,6 +13,8 @@ public abstract class Character implements Attacker{
         setHp(hp);
     }
 
+    public Character() {}
+
     public int getId() {
         return id;
     }
@@ -42,7 +44,7 @@ public abstract class Character implements Attacker{
     }
 
     public void setAlive(boolean alive) {
-        isAlive = alive;
+        this.isAlive = alive;
     }
 
     @Override

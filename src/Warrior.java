@@ -12,6 +12,10 @@ public class Warrior extends Character implements Attacker{
         setStrength(strength);
     }
 
+    public Warrior() {
+
+    }
+
     @Override
     public int attack() {
         if (this.getStamina() >= 5) {

@@ -1,14 +1,15 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Graveyard {
     // propiedades
-    private List<Character> deadCharacters;
+    private static ArrayList<Character> deadCharacters;
 
     // constructor vacío
     public Graveyard() {
 
     }
-    public Graveyard(List<Character> deadCharacters) {
+    public Graveyard(ArrayList<Character> deadCharacters) {
         setDeadCharacters(deadCharacters);
     }
 
@@ -17,10 +18,9 @@ public class Graveyard {
     * Añade un carácter a la lista del cementerio. Cuando isAlive pase a false, se llama a este método:
      * instanciaGraveyard.addDeadCharacter(getDeadCharacters(), personajeFallecido);
      * Según cómo sean constridas las otras clases, deberé cambiar la manera de invocarlo.
-     * @param deadCharacters    propiedad de Graveyard que contiene los muertos
      * @param deadChar          carácter a añadir al cementerio
     * */
-    public void addDeadCharacter( Character deadChar) {
+    public static void addDeadCharacter(Character deadChar) {
         if (deadChar.isAlive() == false) {
             deadCharacters.add(deadChar);
         }
@@ -28,6 +28,7 @@ public class Graveyard {
     }
 
     public void showGraveyard () {
+        if (getDeadCharacters() == null) System.out.println("No hay muertos en el cementerio");
         System.out.println("Soldados en el cementerio:");
         for (Character c : getDeadCharacters()) {
             System.out.println(c.getName());
@@ -35,11 +36,11 @@ public class Graveyard {
     }
 
     // getter
-    public List<Character> getDeadCharacters() {
+    public static ArrayList<Character> getDeadCharacters() {
         return deadCharacters;
     }
     // setter
-    public void setDeadCharacters(List<Character> deadCharacters) {
+    public void setDeadCharacters(ArrayList<Character> deadCharacters) {
         this.deadCharacters = deadCharacters;
     }
 }

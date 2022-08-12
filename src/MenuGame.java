@@ -36,10 +36,13 @@ public class MenuGame {
 
                         break;
                     case 2:
-                        // Parties.importParty();
+                        CSVHandler.importCSVParty();
                         break;
                     case 3:
-                        // show graveyard
+                        if (Graveyard.getDeadCharacters() == null) System.out.println("No hay muertos en el cementerio");
+                        else {
+                            System.out.println(Graveyard.getDeadCharacters().toArray().toString());
+                        }
                         break;
                     case 4:
                         System.out.println("Party 1" +  " has " +  party1.getParty().size() + " fighters");
