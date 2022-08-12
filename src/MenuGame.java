@@ -43,10 +43,12 @@ public class MenuGame {
                         Party.createParty();
                         break;
                     case 2:
-                       // Parties.importParty();
+                      // Party.importParty();
                         break;
                     case 3:
                         // show graveyard
+                        Graveyard graveyard = new Graveyard();
+                        graveyard.showGraveyard();
                         break;
                     case 4:
                         Battle battle = new Battle();
