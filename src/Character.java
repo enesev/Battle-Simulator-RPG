@@ -1,6 +1,6 @@
 import interfaces.Attacker;
 
-public abstract class Character implements Attacker {
+public abstract class Character implements Attacker{
 
     private int id;
     private String name;

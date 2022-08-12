@@ -9,6 +9,7 @@ public class Party {
     public Party(ArrayList<Character> party) {
         setParty(party);
     }
+    public Party(){};
 
     public ArrayList<Character> getParty() {
         return party;
@@ -68,7 +69,7 @@ public class Party {
 
     public static ArrayList<Character> createRandomParty() {
         System.out.println("Cuántos soldados tiene tu ejército?");
-            int partySize = (int) Math.ceil(Math.random()*3+1);
+        int partySize = PideDatos.pideValorMinMax(1, 4, "¿Cuántos soldados tiene tu ejército?");
             ArrayList<Character> party2 = new ArrayList<>(partySize);
             for (int i = 0; i < partySize; i++ ){
                 System.out.println("Qué tipo de personaje quieres crear? \n" +
@@ -77,20 +78,20 @@ public class Party {
                 int opcionElegida = (int) Math.ceil(Math.random()*2-1);
 
                 if (opcionElegida == 1) {
-                    int id = (int) Math.ceil(Math.random()*15+1);
+                    int id = (int) (Math.random()*1+10);
                     String name = "Juan";
-                    int health = (int) Math.ceil(Math.random()*200);
-                    int stamina = (int) Math.ceil(Math.random()*50);
-                    int strength = (int) Math.ceil(Math.random()*10);
+                    int health = (int) (Math.random() * 100 + 100);
+                    int stamina = (int) (Math.random() * 40 + 10);
+                    int strength = (int) (Math.random() * 10 + 0);
                     Warrior warrior1 = new Warrior(id, name, health, stamina, strength);
                     party2.add(warrior1);
                     System.out.println("Se ha creado un Warrior con los siguientes datos :" + warrior1.toString());
                 }else {
-                    int id = (int) Math.ceil(Math.random()*15+1);
+                    int id = (int) (Math.random()*1+10);
                     String name = "Pedro";
-                    int health = (int) Math.ceil(Math.random()*100);
-                    int mana = (int) Math.ceil(Math.random()*50);
-                    int intelligence = (int) Math.ceil(Math.random()*50);
+                    int health = (int) (Math.random() * 50 + 50);
+                    int mana = (int) (Math.random() * 40 + 10);
+                    int intelligence = (int) (Math.random() * 50 + 0);
                     Wizard wizard1 = new Wizard(id, name, health, mana, intelligence);
                     party2.add(wizard1);
                     System.out.println("Se ha creado un Wizard con los siguientes datos :" + wizard1.toString());

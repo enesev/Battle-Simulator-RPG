@@ -1,6 +1,6 @@
 import interfaces.Attacker;
 
-public class Wizard extends Character implements Attacker {
+public class Wizard extends Character implements Attacker{
     private int mana;
     private int intelligence;
 

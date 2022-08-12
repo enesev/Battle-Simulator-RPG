@@ -1,6 +1,6 @@
 package interfaces;
 
-public interface Attacker {
+public interface Attacker{
 
     int attack();
 }

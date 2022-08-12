@@ -20,7 +20,7 @@ public class Graveyard {
      * @param deadCharacters    propiedad de Graveyard que contiene los muertos
      * @param deadChar          carácter a añadir al cementerio
     * */
-    public void addDeadCharacter(List<Character> deadCharacters, Character deadChar) {
+    public void addDeadCharacter( Character deadChar) {
         if (deadChar.isAlive() == false) {
             deadCharacters.add(deadChar);
         }

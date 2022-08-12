@@ -1,6 +1,6 @@
 import interfaces.Attacker;
 
-public class Warrior extends Character implements Attacker {
+public class Warrior extends Character implements Attacker{
 
     //Variables
     private int stamina;

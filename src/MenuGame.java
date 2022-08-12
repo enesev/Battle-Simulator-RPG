@@ -3,8 +3,12 @@ import java.util.Scanner;
 public class MenuGame {
 
 
+
+
     public static void menu(){
         boolean exit = false;
+        Party party1 = new Party();
+        Party party2 = new Party();
         Scanner scan = new Scanner(System.in);
         do{
             try{
@@ -33,6 +37,7 @@ public class MenuGame {
                 }*/
 
                 int option = scan.nextInt();
+                int counter = 0;
 
                 switch (option){
                     case 0:
@@ -40,7 +45,11 @@ public class MenuGame {
                         exit = true;
                         break;
                     case 1:
-                        Party.createParty();
+                        if(counter == 0) party1 = new Party(Party.createParty());
+                        else party2 = new Party(Party.createParty());
+                        counter++;
+
+
                         break;
                     case 2:
                        // Parties.importParty();
@@ -49,13 +58,17 @@ public class MenuGame {
                         // show graveyard
                         break;
                     case 4:
+
                         Battle battle = new Battle();
-                        battle.battle();
+                        battle.battle(party1, party2);
+
+                        break;
                     default:
                         System.err.println("You have to select an appropriate option");
                 }
             }catch (Exception e){
-                System.out.println("Options are from 0 to 3");
+                System.err.println("Options are from 0 to 3");
+                e.printStackTrace();
                 scan.next();
             }
         }while (!exit);

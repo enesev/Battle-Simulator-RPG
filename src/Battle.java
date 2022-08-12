@@ -10,13 +10,12 @@ public class Battle {
 
     private Scanner input = new Scanner(System.in);
 
-    private Party party1 = new Party(Party.createParty());
-    private Party party2 = new Party(Party.createParty());
+
 
     private Graveyard graveyard = new Graveyard();
 
 
-    public void battle(){
+    public void battle(Party party1, Party party2){
         do {
             Character f1 = chooseCharacter(party1);
             Character f2 = chooseCharacter(party2);
@@ -36,9 +35,9 @@ public class Battle {
 
         Character fighter = null;
 
-        for (int i = 0; i < party1.getParty().size(); i++){
+        for (int i = 0; i < party.getParty().size(); i++){
 
-            Character f = party1.getParty().get(i);
+            Character f = party.getParty().get(i);
 
             if (f.getName().equals(chosenCharacter)){
                 System.out.println(f.getName() + " was selected to fight.");
@@ -65,11 +64,12 @@ public class Battle {
 
         if (fighter1.getHp() <= 0) {
             System.out.println("Your fighter " + fighter1.getName() + " ha muerto!");
-            graveyard.addDeadCharacter(party1.getParty(), fighter1);
+            graveyard.addDeadCharacter(fighter1);
+
         }
         if (fighter2.getHp() <= 0){
             System.out.println("Tu luchador " + fighter2.getName() + " has died!");
-            graveyard.addDeadCharacter(party2.getParty(), fighter2);
+            graveyard.addDeadCharacter(fighter2);
 
         }
     }
